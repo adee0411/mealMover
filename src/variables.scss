@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@200&display=swap");
+
+// COLORS
+$primary-color-1: #f5d500;
+$primary-color-2: #12141a;
+$primary-color-3: #acacac;
+
+$secondary-color-1: #ffffff;
+$secondary-color-2: #fafafa;
+
+$body-bg-color: $secondary-color-1;
+$component-bg-color: $secondary-color-2;
+
+$section-bg-color-light: $primary-color-1;
+$section-bg-color-dark: $primary-color-2;
+
+$button-bg-color-light: $primary-color-1;
+$button-bg-color-dark: $primary-color-2;
+
+$heading-color-light: $primary-color-1;
+$heading-color-light-2: $secondary-color-1;
+$heading-color-dark: $primary-color-2;
+
+$link-color-dark: $primary-color-2;
+$link-color-light: $primary-color-1;
+$link-color-light-2: $secondary-color-1;
+
+$text-color-dark: $primary-color-2;
+$text-color-light: $primary-color-1;
+$text-color-light-2: $secondary-color-1;
+
+$font-family-base: "Poppins";
+$font-family-fancy: "Permanent Marker";
+
+// Desktop Spacing
+$desktop-block-padding-top-bottom: 130px;
+$desktop-block-inner-padding: 60px;
+
+// Desktop Spacing
+$tablet-block-padding-top-bottom: 80px;
+$tablet-block-inner-padding: 40px;
+
+// Desktop Spacing
+$mobile-block-padding-top-bottom: 60px;
+$mobile-block-inner-padding: 40px;
+
+// Width size
+$block-max-width: 1200px;
+
+//Viewports
+$viewport-lg: 992px;
+$viewport-md: 767px;
+$viewport-sm: 479px;

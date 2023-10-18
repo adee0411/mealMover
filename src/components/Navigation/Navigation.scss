@@ -1,0 +1,87 @@
+@import "../../variables.scss";
+
+.header {
+  //border-bottom: 1px solid;
+  position: relative;
+}
+
+.nav-wrapper {
+  padding: 0.7rem 1rem;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+
+  &__img {
+    width: 36px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+    font-family: $font-family-fancy;
+    font-size: 1.6rem;
+    color: $link-color-dark;
+  }
+}
+
+.side-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  .cart-container {
+    width: 2rem;
+
+    &__button {
+      position: relative;
+      img {
+        width: 100%;
+      }
+
+      .badge {
+        position: absolute;
+        top: -10px;
+        right: -10px;
+        border-radius: 50%;
+        background-color: $primary-color-1;
+        width: 16px;
+        height: 16px;
+        font-size: 0.6rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 800;
+      }
+    }
+  }
+
+  .burger-container {
+    width: 2rem;
+
+    &__button {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.menu-wrapper {
+  display: none;
+  background-color: $primary-color-1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
