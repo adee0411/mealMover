@@ -1,0 +1,13 @@
+.gallery {
+  &__image-list {
+    min-width: 100%;
+    display: flex;
+    overflow-x: scroll;
+  }
+
+  &__image-item {
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+  }
+}

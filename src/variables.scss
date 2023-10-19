@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@200&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
 // COLORS
 $primary-color-1: #f5d500;
 $primary-color-2: #12141a;
@@ -9,7 +9,8 @@ $secondary-color-1: #ffffff;
 $secondary-color-2: #fafafa;
 
 $body-bg-color: $secondary-color-1;
-$component-bg-color: $secondary-color-2;
+$component-bg-color-1: $primary-color-1;
+$component-bg-color-2: $secondary-color-1;
 
 $section-bg-color-light: $primary-color-1;
 $section-bg-color-dark: $primary-color-2;
@@ -29,7 +30,7 @@ $text-color-dark: $primary-color-2;
 $text-color-light: $primary-color-1;
 $text-color-light-2: $secondary-color-1;
 
-$font-family-base: "Poppins";
+$font-family-base: "Montserrat";
 $font-family-fancy: "Permanent Marker";
 
 // Desktop Spacing
