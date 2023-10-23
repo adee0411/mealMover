@@ -1,5 +1,6 @@
 import "./Navigation.scss";
-import Logo from "../../assets/images/taco_128_primary.png";
+import Logo from "../UI/Logo";
+
 import Cart from "../../assets/images/grocery-store_64.png";
 import Burger from "../../assets/images/burger_64.png";
 const Navigation = () => {
@@ -7,13 +8,7 @@ const Navigation = () => {
     <header className="header">
       <div className="nav-wrapper">
         <nav className="navigation">
-          <a href="#" className="logo-container">
-            <div className="logo-container__img">
-              {" "}
-              <img src={Logo} />
-            </div>
-            <span className="logo-container__text">MealMover</span>
-          </a>
+          <Logo variant="inverted" />
           <div className="menu-wrapper">
             <ul>
               <li>

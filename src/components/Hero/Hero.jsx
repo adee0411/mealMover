@@ -1,5 +1,6 @@
 import "./Hero.scss";
 
+import Button from "../UI/Button";
 import { MdLocationPin, MdOutlineRestaurantMenu } from "react-icons/md/index";
 
 const Hero = () => {
@@ -18,18 +19,16 @@ const Hero = () => {
           are made with only the freshest and highest quality ingredients.
         </p>
         <div className="hero__actions">
-          <button className="btn btn--primary">
-            <span className="btn__content">
-              <MdLocationPin className="btn__icon" />
-              <span className="btn__title">Visit Today</span>
-            </span>
-          </button>
-          <button className="btn btn--secondary">
-            <span className="btn__content">
-              <MdOutlineRestaurantMenu className="btn__icon" />
-              <span className="btn__title">View Menu</span>
-            </span>
-          </button>
+          <Button
+            variant="primary"
+            title="Visit Today"
+            icon={<MdLocationPin />}
+          />
+          <Button
+            variant="secondary"
+            title="Visit Today"
+            icon={<MdOutlineRestaurantMenu />}
+          />
         </div>
       </div>
     </section>

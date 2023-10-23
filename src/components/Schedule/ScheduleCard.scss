@@ -1,0 +1,58 @@
+@import "../../variables.scss";
+
+.schedule-card {
+  background-color: $component-bg-color-2;
+  padding: 1.6rem 1.6rem 0 1.6rem;
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-family: $font-family-fancy;
+    font-size: 1.7rem;
+    margin: 0;
+  }
+
+  &__current-date {
+    background-color: $component-bg-color-1;
+    padding: 0.8rem;
+    border-radius: 0.5rem;
+    opacity: 0.5;
+  }
+
+  &__date-list-item {
+    display: flex;
+    justify-content: space-between;
+
+    padding: 1.6rem 0;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ccc;
+    }
+
+    .place-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+
+      &__city {
+        font-weight: 800;
+        font-size: 1.1rem;
+      }
+
+      &__street {
+        font-size: 0.9rem;
+      }
+    }
+
+    .open-hours {
+      font-family: $font-family-fancy;
+      font-size: 1.4rem;
+    }
+  }
+}

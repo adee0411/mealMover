@@ -1,0 +1,27 @@
+@import "../../variables.scss";
+
+.logo {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  width: fit-content;
+
+  &__img {
+    width: 36px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__text {
+    font-family: $font-family-fancy;
+    font-size: 1.6rem;
+    color: $link-color-dark;
+  }
+
+  &--inverted &__text {
+    color: $link-color-light-2;
+  }
+}
