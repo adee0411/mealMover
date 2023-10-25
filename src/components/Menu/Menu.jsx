@@ -4,21 +4,13 @@ import MenuCard from "./MenuCard";
 
 import { MdOutlineRestaurantMenu } from "react-icons/md/index";
 
-//import getRandomRecipes from "../../data/menu";
-
 import Image from "../../assets/images/pexels-engin-akyurt-1437267.jpg";
+
+import menu from "../../data/menu";
+
 const Menu = () => {
-  const getRandomRecipes = (query) => {
-    const recipe = fetch(
-      `https://forkify-api.herokuapp.com/api/v2/recipes?search=${query}`
-    )
-      .then((data) => data.json())
-      .then(console.log);
+  const foods = Object.values(menu);
 
-    return recipe;
-  };
-
-  getRandomRecipes("pasta");
   return (
     <Section
       variant="light"
@@ -27,14 +19,19 @@ const Menu = () => {
       icon={<MdOutlineRestaurantMenu />}
     >
       <ul className="menu">
-        <li>
-          <MenuCard
-            title="Pasta Classic"
-            ingredients="Two meatballs, onion, pickles, cabbage, sauce, salad, bun, onion"
-            price="14.99"
-            image={Image}
-          />
-        </li>
+        {foods.map((category) => {
+          const firstOfCategory = category[0];
+          return (
+            <li>
+              <MenuCard
+                title={firstOfCategory.title}
+                details={firstOfCategory.details}
+                price={firstOfCategory.price}
+                image={firstOfCategory.image_url}
+              />
+            </li>
+          );
+        })}
       </ul>
     </Section>
   );

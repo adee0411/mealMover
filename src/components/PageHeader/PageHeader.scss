@@ -1,13 +1,12 @@
 @import "../../variables.scss";
 
-.hero {
+.page-header {
   position: relative;
-  height: 432px;
   width: 100%;
 }
 
-.hero__bg {
-  background: url("../../assets/images/pexels-adrian-dorobantu-2300031_COMPRESSED.jpg");
+.page-header__bg {
+  background-image: url("../../assets/images/pexels-adrian-dorobantu-2300031_COMPRESSED.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,8 +30,9 @@
   }
 }
 
-.hero__content {
-  padding: 4rem 1rem;
+.page-header__content {
+  padding: 4rem 1.5rem;
+  line-height: 1.5rem;
   position: relative;
   z-index: 50;
   text-align: center;
@@ -45,24 +45,18 @@
   gap: 1rem;
 }
 
-.hero__title {
+.page-header__title {
   font-family: $font-family-fancy;
   font-size: 2.4rem;
   line-height: 2.6rem;
-  margin: 0;
+  margin: 1rem 0;
 
   &--colored {
     color: $heading-color-light;
   }
 }
 
-.hero__description {
+.page-header__description {
   font-size: 1.1rem;
   margin: 0;
-}
-
-.hero__actions {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
 }

@@ -1,0 +1,22 @@
+@use "sass:color";
+@import "../../variables.scss";
+
+.filter-list {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  &__link {
+    display: block;
+    color: $primary-color-2;
+    border: 1px solid $primary-color-1;
+    padding: 0.5rem 1rem;
+    border-radius: $radius-md;
+
+    &--active {
+      background-color: $primary-color-1;
+    }
+  }
+}

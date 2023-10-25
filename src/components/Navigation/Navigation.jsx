@@ -8,7 +8,7 @@ const Navigation = () => {
     <header className="header">
       <div className="nav-wrapper">
         <nav className="navigation">
-          <Logo variant="inverted" />
+          <Logo />
           <div className="menu-wrapper">
             <ul>
               <li>
