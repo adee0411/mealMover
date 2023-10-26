@@ -5,6 +5,7 @@ import menu from "../data/menu";
 export const menuFilterSlice = createSlice({
   name: "menuFilter",
   initialState: {
+    allMenu: menu,
     filteredMenu: menu,
     activeFilter: "all",
   },
