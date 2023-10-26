@@ -1,18 +1,18 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { setActiveFilter } from "../../store/menuFilterSlice";
 
 import "./FilterList.scss";
 
 import MenuLink from "./MenuLink";
 
 const FilterList = ({ categoryList }) => {
-  const [activeLink, setActiveLink] = useState("All");
+  const activeFilter = useSelector((state) => state.menuFilter.activeFilter);
+  const dispatch = useDispatch();
 
-  const handleLinkChange = (e) => {
+  const handleFilterChange = (e) => {
     e.preventDefault();
     const linkName = e.target.name;
-    console.log(linkName);
-
-    setActiveLink(linkName);
+    dispatch(setActiveFilter(linkName));
   };
 
   return (
@@ -21,23 +21,21 @@ const FilterList = ({ categoryList }) => {
         <a
           href="#"
           className={`filter-list__link ${
-            activeLink === "All" ? "filter-list__link--active" : ""
+            activeFilter === "all" ? "filter-list__link--active" : ""
           }`}
-          name="All"
-          onClick={handleLinkChange}
+          name="all"
+          onClick={handleFilterChange}
         >
           All
         </a>
       </li>
       {categoryList.map((category) => {
-        const capitalizedCategoryName =
-          category[0].toUpperCase() + category.slice(1);
         return (
-          <li className="filter-list__item">
+          <li className="filter-list__item" key={category}>
             <MenuLink
-              categoryName={capitalizedCategoryName}
-              activeLink={activeLink}
-              onHandleLinkChange={handleLinkChange}
+              categoryName={category}
+              activeFilter={activeFilter}
+              onHandleFilterChange={handleFilterChange}
             />
           </li>
         );

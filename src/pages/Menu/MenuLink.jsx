@@ -1,16 +1,16 @@
 import "./MenuLink.scss";
 
-const MenuLink = ({ categoryName, activeLink, onHandleLinkChange }) => {
+const MenuLink = ({ categoryName, activeFilter, onHandleFilterChange }) => {
   return (
     <a
       href="#"
       className={`filter-list__link ${
-        activeLink === "all" ? "filter-list__link--active" : ""
+        activeFilter === categoryName ? "filter-list__link--active" : ""
       }`}
       name={categoryName}
-      onClick={onHandleLinkChange}
+      onClick={onHandleFilterChange}
     >
-      {categoryName}
+      {categoryName[0].toUpperCase() + categoryName.slice(1)}
     </a>
   );
 };
