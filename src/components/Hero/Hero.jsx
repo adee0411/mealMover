@@ -26,7 +26,7 @@ const Hero = () => {
           />
           <Button
             variant="secondary"
-            title="Visit Today"
+            title="View Menu"
             icon={<MdOutlineRestaurantMenu />}
           />
         </div>

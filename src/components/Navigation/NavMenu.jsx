@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { toggleNavigation } from "../../store/navigationSlice";
+import { useState } from "react";
 
+import { Link } from "react-router-dom";
+
+import { AiOutlineClose } from "react-icons/ai/index";
 import { MdRestaurantMenu } from "react-icons/md/index";
 import { CiPizza, CiBurger } from "react-icons/ci/index";
 import { PiBowlFoodLight } from "react-icons/pi/index";
 import { GiTacos, GiBarbecue } from "react-icons/gi/index";
+import { BiChevronDown } from "react-icons/bi/index";
 
 import "./NavMenu.scss";
-import { AiOutlineClose } from "react-icons/ai/index";
+
 import Logo from "../UI/Logo";
 
 const MENU_ICONS = {
@@ -25,41 +30,86 @@ const NavMenu = () => {
     useSelector((state) => state.menuFilter.allMenu)
   );
 
+  const [isMenuAccordionOpen, setIsMenuAccordionOpen] = useState(false);
+
+  const toggleMenuAccordion = () => {
+    setIsMenuAccordionOpen((prevState) => !prevState);
+  };
+
   const toggleNavMenu = () => {
     dispatach(toggleNavigation());
   };
 
   return (
     <div
-      className={`menu-wrapper ${isNavMenuOpen ? "menu-wrapper--open" : ""}`}
+      className={`nav-menu-wrapper ${
+        isNavMenuOpen ? "nav-menu-wrapper--open" : ""
+      }`}
     >
-      <header className="menu-wrapper__header">
+      <header className="nav-menu-wrapper__header">
         <Logo />
-        <div className="btn-wrapper">
-          <button onClick={toggleNavMenu}>
+        <div className="close-btn-wrapper">
+          <button className="close-btn-wrapper__btn" onClick={toggleNavMenu}>
             <AiOutlineClose />
           </button>
         </div>
       </header>
-      <div>
-        <ul>
-          <li>
-            <button>
-              <span>
-                <MdRestaurantMenu />
-              </span>
-              <span>Menu</span>
-            </button>
-            <ul>
+      <div className="nav-menu-wrapper__menu">
+        <ul className="nav-menu-wrapper__menu-list">
+          <li className="nav-menu-wrapper__menu-item">
+            {/** Accordion Button */}
+            <div className="accordion-btn-wrapper">
+              {" "}
+              <button className="accordion-btn" onClick={toggleMenuAccordion}>
+                <span className="accordion-btn__start-icon">
+                  <MdRestaurantMenu />
+                </span>
+                <span className="accordion-btn__title">Menü</span>
+                <span
+                  className={`accordion-btn__state-icon ${
+                    isMenuAccordionOpen ? "accordion-btn__state-icon--open" : ""
+                  }`}
+                >
+                  <BiChevronDown />
+                </span>
+              </button>
+            </div>
+            {/* Accordion Sub-menu */}
+            <ul
+              className={`accordion-sub-menu ${
+                isMenuAccordionOpen ? "accordion-sub-menu--open" : ""
+              }`}
+            >
               {menuCategories.map((category) => {
                 return (
-                  <li>
-                    <span>{MENU_ICONS[category]}</span>
-                    <span>{category}</span>
+                  <li className="accordion-sub-menu__item" key={category}>
+                    <a href="#" className="accordion-sub-menu__link">
+                      <span className="accordion-sub-menu__start-icon">
+                        {MENU_ICONS[category]}
+                      </span>
+                      <span className="accordion-sub-menu__title">
+                        {category[0].toUpperCase() + category.slice(1)}
+                      </span>
+                    </a>
                   </li>
                 );
               })}
             </ul>
+          </li>
+          <li className="nav-menu-wrapper__menu-item">
+            <Link to="/menu">Item 2</Link>
+          </li>
+          <li className="nav-menu-wrapper__menu-item">
+            <a href="#">Item 2</a>
+          </li>
+          <li className="nav-menu-wrapper__menu-item">
+            <a href="#">Item 2</a>
+          </li>
+          <li className="nav-menu-wrapper__menu-item">
+            <a href="#">Item 2</a>
+          </li>
+          <li className="nav-menu-wrapper__menu-item">
+            <a href="#">Item 2</a>
           </li>
         </ul>
       </div>

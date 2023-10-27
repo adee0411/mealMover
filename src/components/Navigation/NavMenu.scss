@@ -1,6 +1,6 @@
 @import "../../variables.scss";
 
-.menu-wrapper {
+.nav-menu-wrapper {
   display: block;
   background-color: $primary-color-1;
   position: absolute;
@@ -21,9 +21,67 @@
     justify-content: space-between;
     align-items: center;
 
-    .btn-wrapper {
-      button {
+    .close-btn-wrapper {
+      &__btn {
         font-size: 1.2rem;
+      }
+    }
+  }
+
+  &__menu-item {
+    padding: 0.5rem 0;
+
+    a {
+      color: $primary-color-2;
+      display: block;
+    }
+  }
+
+  &__menu-item * {
+    font-size: 1.1rem;
+  }
+
+  &__menu {
+    padding: 2rem 0;
+
+    .accordion-btn-wrapper {
+      .accordion-btn {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 0.5rem;
+        font-weight: 400;
+
+        &__state-icon {
+          margin-left: auto;
+          display: flex;
+          align-items: center;
+          transition: transform 0.4s ease;
+
+          &--open {
+            transform: rotate(180deg);
+          }
+        }
+      }
+    }
+
+    .accordion-sub-menu {
+      padding-left: 2rem;
+      display: none;
+
+      &--open {
+        display: block;
+      }
+      &__link {
+        display: block;
+        padding: 0.5rem 0;
+
+        font-size: 1rem;
+
+        display: flex;
+        justify-content: flex-start;
+        gap: 0.5rem;
       }
     }
   }
