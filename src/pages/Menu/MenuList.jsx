@@ -11,6 +11,7 @@ const MenuList = ({ filteredList }) => {
               details={food.details}
               price={food.price}
               image={food.image_url}
+              id={food.id}
             />
           </li>
         );

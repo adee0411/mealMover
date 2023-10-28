@@ -18,6 +18,14 @@ const router = createBrowserRouter([
         path: "/menu",
         element: <MenuPage />,
       },
+      {
+        path: "/menu/:filter",
+        element: <MenuPage />,
+      },
+      {
+        path: "/:productID",
+        element: <ProductDetailPage />,
+      },
     ],
   },
 ]);

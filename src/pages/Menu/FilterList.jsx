@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { setActiveFilter } from "../../store/menuFilterSlice";
 
+import { NavLink } from "react-router-dom";
+
 import "./FilterList.scss";
 
 import MenuLink from "./MenuLink";
@@ -10,7 +12,7 @@ const FilterList = ({ categoryList }) => {
   const dispatch = useDispatch();
 
   const handleFilterChange = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     const linkName = e.target.name;
     dispatch(setActiveFilter(linkName));
   };
@@ -18,8 +20,8 @@ const FilterList = ({ categoryList }) => {
   return (
     <ul className="filter-list">
       <li className="filter-list__item">
-        <a
-          href="#"
+        <NavLink
+          to="/menu/all"
           className={`filter-list__link ${
             activeFilter === "all" ? "filter-list__link--active" : ""
           }`}
@@ -27,7 +29,7 @@ const FilterList = ({ categoryList }) => {
           onClick={handleFilterChange}
         >
           All
-        </a>
+        </NavLink>
       </li>
       {categoryList.map((category) => {
         return (
