@@ -24,7 +24,7 @@ const FilterList = ({ categoryList }) => {
         <NavLink
           to="/menu/osszes"
           className={`filter-list__link ${
-            activeFilter === undefined ? "filter-list__link--active" : ""
+            activeFilter === "osszes" ? "filter-list__link--active" : ""
           }`}
           name="osszes"
         >

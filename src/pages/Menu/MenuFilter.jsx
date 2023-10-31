@@ -20,7 +20,7 @@ const MenuFilter = ({ categoryList }) => {
   const menuList = useSelector((state) => state.menuFilter.allMenu);
   console.log(activeFilter);
   const filteredList =
-    activeFilter === undefined
+    activeFilter === "osszes"
       ? Object.values(menuList).flat()
       : menuList[activeFilter];
 

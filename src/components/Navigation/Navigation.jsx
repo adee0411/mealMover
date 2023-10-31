@@ -1,18 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import { toggleNavigation } from "../../store/navigationSlice";
 
 import "./Navigation.scss";
 import Logo from "../UI/Logo";
+import Cart from "./Cart/Cart";
 
 import NavMenu from "./NavMenu";
 
-import Cart from "../../assets/images/grocery-store_64.png";
 import Burger from "../../assets/images/burger_64.png";
+import { FaShoppingCart } from "react-icons/fa/index";
+
 const Navigation = () => {
   const dispatch = useDispatch();
 
   const toggleNavMenu = () => {
     dispatch(toggleNavigation());
+  };
+
+  const [showCart, setShowCart] = useState(false);
+
+  const handleShowCart = () => {
+    setShowCart((prevState) => !prevState);
   };
   return (
     <header className="header">
@@ -22,8 +31,11 @@ const Navigation = () => {
           <NavMenu />
           <div className="side-wrapper">
             <div className="cart-container">
-              <button className="cart-container__button" disabled>
-                <img src={Cart} />
+              <button
+                className="cart-container__button"
+                onClick={handleShowCart}
+              >
+                <FaShoppingCart />
                 <span className="badge">0</span>
               </button>
             </div>
@@ -38,6 +50,7 @@ const Navigation = () => {
           </div>
         </nav>
       </div>
+      {showCart && <Cart onShowCart={handleShowCart} />}
     </header>
   );
 };

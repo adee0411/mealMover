@@ -40,6 +40,11 @@ const NavMenu = () => {
     dispatach(toggleNavigation());
   };
 
+  const closeToggles = () => {
+    toggleMenuAccordion();
+    toggleNavMenu();
+  };
+
   return (
     <div
       className={`nav-menu-wrapper ${
@@ -86,7 +91,7 @@ const NavMenu = () => {
                     <Link
                       to={`/menu/${category}`}
                       className="accordion-sub-menu__link"
-                      onClick={toggleNavMenu}
+                      onClick={closeToggles}
                     >
                       <span className="accordion-sub-menu__start-icon">
                         {MENU_ICONS[category]}
