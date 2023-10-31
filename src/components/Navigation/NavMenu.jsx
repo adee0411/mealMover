@@ -83,33 +83,22 @@ const NavMenu = () => {
               {menuCategories.map((category) => {
                 return (
                   <li className="accordion-sub-menu__item" key={category}>
-                    <a href="#" className="accordion-sub-menu__link">
+                    <Link
+                      to={`/menu/${category}`}
+                      className="accordion-sub-menu__link"
+                      onClick={toggleNavMenu}
+                    >
                       <span className="accordion-sub-menu__start-icon">
                         {MENU_ICONS[category]}
                       </span>
                       <span className="accordion-sub-menu__title">
                         {category[0].toUpperCase() + category.slice(1)}
                       </span>
-                    </a>
+                    </Link>
                   </li>
                 );
               })}
             </ul>
-          </li>
-          <li className="nav-menu-wrapper__menu-item">
-            <Link to="/menu">Item 2</Link>
-          </li>
-          <li className="nav-menu-wrapper__menu-item">
-            <a href="#">Item 2</a>
-          </li>
-          <li className="nav-menu-wrapper__menu-item">
-            <a href="#">Item 2</a>
-          </li>
-          <li className="nav-menu-wrapper__menu-item">
-            <a href="#">Item 2</a>
-          </li>
-          <li className="nav-menu-wrapper__menu-item">
-            <a href="#">Item 2</a>
           </li>
         </ul>
       </div>

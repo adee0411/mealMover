@@ -28,6 +28,7 @@ const Hero = () => {
             variant="secondary"
             title="View Menu"
             icon={<MdOutlineRestaurantMenu />}
+            path="menu"
           />
         </div>
       </div>

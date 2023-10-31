@@ -1,3 +1,38 @@
+@import "../../variables.scss";
+
 .menu-filter {
   padding: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.loading {
+  width: fit-content;
+  margin: 0 auto;
+
+  &__icon {
+    width: 100px;
+    height: auto;
+    color: $primary-color-1;
+
+    animation-name: rotate;
+    animation-duration: 1500ms;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+  }
+
+  &__text {
+    text-align: center;
+    color: $text-color-light;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

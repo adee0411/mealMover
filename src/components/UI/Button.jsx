@@ -1,14 +1,16 @@
 import "./Button.scss";
 
-const Button = ({ variant, icon, title }) => {
+import { Link } from "react-router-dom";
+
+const Button = ({ variant, icon, title, path }) => {
   return (
-    <button className={`btn btn--${variant}`}>
+    <Link to={path} className={`btn btn--${variant}`}>
       <span className="btn__content">
         <span className="btn__icon">{icon}</span>
 
         <span className="btn__title">{title}</span>
       </span>
-    </button>
+    </Link>
   );
 };
 

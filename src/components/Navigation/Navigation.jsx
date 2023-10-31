@@ -22,7 +22,7 @@ const Navigation = () => {
           <NavMenu />
           <div className="side-wrapper">
             <div className="cart-container">
-              <button className="cart-container__button">
+              <button className="cart-container__button" disabled>
                 <img src={Cart} />
                 <span className="badge">0</span>
               </button>
