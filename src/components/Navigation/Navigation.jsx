@@ -12,6 +12,7 @@ import Burger from "../../assets/images/burger_64.png";
 import { FaShoppingCart } from "react-icons/fa/index";
 
 const Navigation = () => {
+  const numOfItems = useSelector((state) => state.cart.cart.numOfItems);
   const dispatch = useDispatch();
 
   const toggleNavMenu = () => {
@@ -36,7 +37,7 @@ const Navigation = () => {
                 onClick={handleShowCart}
               >
                 <FaShoppingCart />
-                <span className="badge">0</span>
+                <span className="badge">{numOfItems}</span>
               </button>
             </div>
             <div className="burger-container">

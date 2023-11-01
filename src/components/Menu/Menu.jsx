@@ -19,10 +19,10 @@ const Menu = () => {
       icon={<MdOutlineRestaurantMenu />}
     >
       <ul className="menu">
-        {foods.map((category) => {
+        {foods.map((category, index) => {
           const firstOfCategory = category[0];
           return (
-            <li>
+            <li key={index}>
               <MenuCard
                 title={firstOfCategory.title}
                 details={firstOfCategory.details}

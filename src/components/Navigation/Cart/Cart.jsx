@@ -1,20 +1,26 @@
 import "./Cart.scss";
 
-import { useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import CartItem from "./CartItem";
 
 import { AiOutlineClose } from "react-icons/ai/index";
 
-import TestImage from "../../../assets/images/pexels-adrian-dorobantu-2300031_COMPRESSED.jpg";
-import TestImage2 from "../../../assets/images/pexels-engin-akyurt-1437267.jpg";
+import EmptyCart from "../../../assets/icons/empty-cart.png";
 
 const Cart = ({ onShowCart }) => {
-  const productQuantityRef = useRef();
+  const cart = useSelector((state) => state.cart.cart);
+  const { items, totalAmount, numOfItems } = cart;
 
-  const handleQuantityChange = (e) => {
-    if (e.target.value < 1) {
-      e.target.value = 1;
-    }
-  };
+  const emptyCartComponent = (
+    <div className="empty-cart">
+      <p className="empty-cart__text">Cart is currently empty</p>
+      <div className="empty-cart__image">
+        <img src={EmptyCart} />
+      </div>
+    </div>
+  );
+
   return (
     <div className="cart-wrapper">
       {/** Overlay */}
@@ -32,59 +38,19 @@ const Cart = ({ onShowCart }) => {
           </div>
         </header>
         <div className="cart__content">
-          <ul className="product-list">
-            <li className="product-list__item">
-              <div className="item-wrapper">
-                <div className="img-cont">
-                  <img src={TestImage} />
-                </div>
-                <div className="product-details">
-                  <h4 className="product-details__title">Pasta Classic</h4>
-                  <p className="product-details__price">2399 Ft</p>
-                  <form className="product-details__action">
-                    <button className="remove-product">Remove</button>
-                  </form>
-                </div>
-              </div>
-              <form className="quantity-form">
-                <input
-                  type="number"
-                  defaultValue={1}
-                  name="product-quantity"
-                  onChange={handleQuantityChange}
-                  ref={productQuantityRef}
-                />
-              </form>
-            </li>
-            <li className="product-list__item">
-              <div className="item-wrapper">
-                <div className="img-cont">
-                  <img src={TestImage2} />
-                </div>
-                <div className="product-details">
-                  <h4 className="product-details__title">Pasta Classic</h4>
-                  <p className="product-details__price">2399 Ft</p>
-                  <form className="product-details__action">
-                    <button className="remove-product">Remove</button>
-                  </form>
-                </div>
-              </div>
-              <form className="quantity-form">
-                <input
-                  type="number"
-                  defaultValue={1}
-                  name="product-quantity"
-                  onChange={handleQuantityChange}
-                  ref={productQuantityRef}
-                />
-              </form>
-            </li>
-          </ul>
+          {numOfItems === 0 && emptyCartComponent}
+          {numOfItems > 0 && (
+            <ul className="product-list">
+              {items.map((item) => {
+                return <CartItem item={item} key={item.itemData.id} />;
+              })}
+            </ul>
+          )}
         </div>
         <footer className="cart__footer">
           <div className="total">
             <span className="total__text">Subtotal</span>
-            <span className="total__price">4798 Ft</span>
+            <span className="total__price">{totalAmount} Ft</span>
           </div>
           <form className="checkout">
             <button className="checkout-btn">Continue to Checkout</button>

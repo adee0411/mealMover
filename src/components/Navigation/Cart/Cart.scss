@@ -66,6 +66,23 @@
       border-top: 1px solid #ccc;
       border-bottom: 1px solid #ccc;
 
+      .empty-cart {
+        text-align: center;
+
+        &__text {
+          font-size: 1rem;
+        }
+
+        &__image {
+          width: 60px;
+          margin: 0 auto;
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+
       .product-list {
         display: flex;
         flex-direction: column;

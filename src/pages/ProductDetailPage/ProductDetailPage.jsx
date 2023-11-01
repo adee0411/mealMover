@@ -1,10 +1,13 @@
 import { useParams } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useRef } from "react";
 
 import "./ProductDetailPage.scss";
 
+import { addItem } from "../../store/cartSlice";
+
 const ProductDetailPage = () => {
+  const dispatch = useDispatch();
   const productQuantityRef = useRef(1);
 
   const params = useParams();
@@ -20,6 +23,16 @@ const ProductDetailPage = () => {
     if (value < 1) {
       e.target.value = 1;
     }
+  };
+
+  const handleAddItemToCart = (e) => {
+    e.preventDefault();
+    const item = {
+      quantity: +productQuantityRef.current.value,
+      itemData: { ...menuToRender },
+      itemTotal: +productQuantityRef.current.value * menuToRender.price,
+    };
+    dispatch(addItem(item));
   };
 
   return (
@@ -57,7 +70,7 @@ const ProductDetailPage = () => {
                     onChange={handleQuantityChange}
                     defaultValue={1}
                   />
-                  <button>Add to cart</button>
+                  <button onClick={handleAddItemToCart}>Add to cart</button>
                 </div>
               </form>
             </div>
