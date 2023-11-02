@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { toggleNavigation } from "../../store/navigationSlice";
 
 import "./Navigation.scss";
@@ -11,8 +11,11 @@ import NavMenu from "./NavMenu";
 import Burger from "../../assets/images/burger_64.png";
 import { FaShoppingCart } from "react-icons/fa/index";
 
+import { addCartAnimation } from "../../store/navigationSlice";
+
 const Navigation = () => {
   const numOfItems = useSelector((state) => state.cart.cart.numOfItems);
+  const cartFeedback = useSelector((state) => state.navigation.cartFeedback);
   const dispatch = useDispatch();
 
   const toggleNavMenu = () => {
@@ -24,6 +27,16 @@ const Navigation = () => {
   const handleShowCart = () => {
     setShowCart((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    const cartTimeout = setTimeout(() => {
+      dispatch(addCartAnimation(false));
+    }, 1000);
+
+    return () => {
+      clearTimeout(cartTimeout);
+    };
+  });
   return (
     <header className="header">
       <div className="nav-wrapper">
@@ -31,7 +44,11 @@ const Navigation = () => {
           <Logo />
           <NavMenu />
           <div className="side-wrapper">
-            <div className="cart-container">
+            <div
+              className={`cart-container ${
+                cartFeedback ? "cart-container--pulse" : ""
+              }`}
+            >
               <button
                 className="cart-container__button"
                 onClick={handleShowCart}
@@ -50,8 +67,8 @@ const Navigation = () => {
             </div>
           </div>
         </nav>
+        {showCart && <Cart onShowCart={handleShowCart} />}
       </div>
-      {showCart && <Cart onShowCart={handleShowCart} />}
     </header>
   );
 };

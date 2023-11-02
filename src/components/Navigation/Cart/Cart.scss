@@ -7,7 +7,7 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 999;
 
   .cart-overlay {
     position: absolute;
@@ -63,8 +63,6 @@
 
     &__content {
       padding: 1.5rem;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
 
       .empty-cart {
         text-align: center;
@@ -129,6 +127,11 @@
                 font-weight: 100;
               }
 
+              &__quantity {
+                font-size: 0.8rem;
+                margin-left: 0.5rem;
+              }
+
               &__action {
                 .remove-product {
                   padding: 0;
@@ -144,6 +147,10 @@
           }
 
           .quantity-form {
+            width: 40%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
             input {
               padding: 0.6em 0.8rem;
               width: 60px;
@@ -152,10 +159,16 @@
               border: 1px solid #ccc;
               outline: none;
               font-family: $font-family-base;
+              pointer-events: none;
 
               &:focus {
                 border: 1px solid $primary-color-1;
               }
+            }
+
+            .btn--increase,
+            .btn--decrease {
+              font-size: 1.5rem;
             }
           }
         }

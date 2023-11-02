@@ -1,15 +1,14 @@
+import { useSelector } from "react-redux";
+
 import "./Menu.scss";
 import Section from "../UI/Section";
 import MenuCard from "./MenuCard";
 
 import { MdOutlineRestaurantMenu } from "react-icons/md/index";
 
-import Image from "../../assets/images/pexels-engin-akyurt-1437267.jpg";
-
-import menu from "../../data/menu";
-
 const Menu = () => {
-  const foods = Object.values(menu);
+  const foods = Object.values(useSelector((state) => state.menuFilter.allMenu));
+  console.log(foods);
 
   return (
     <Section
@@ -19,15 +18,16 @@ const Menu = () => {
       icon={<MdOutlineRestaurantMenu />}
     >
       <ul className="menu">
-        {foods.map((category, index) => {
+        {foods.map((category) => {
           const firstOfCategory = category[0];
           return (
-            <li key={index}>
+            <li key={firstOfCategory.id}>
               <MenuCard
                 title={firstOfCategory.title}
                 details={firstOfCategory.details}
                 price={firstOfCategory.price}
                 image={firstOfCategory.image_url}
+                id={firstOfCategory.id}
               />
             </li>
           );

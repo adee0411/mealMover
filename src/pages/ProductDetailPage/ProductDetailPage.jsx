@@ -5,6 +5,7 @@ import { useRef } from "react";
 import "./ProductDetailPage.scss";
 
 import { addItem } from "../../store/cartSlice";
+import { addCartAnimation } from "../../store/navigationSlice";
 
 const ProductDetailPage = () => {
   const dispatch = useDispatch();
@@ -19,20 +20,26 @@ const ProductDetailPage = () => {
   const menuToRender = allMenuArr.find((el) => el.id === productID);
 
   const handleQuantityChange = (e) => {
-    const value = e.target.value;
+    const value = +e.target.value;
     if (value < 1) {
-      e.target.value = 1;
+      e.target.value = "";
     }
   };
 
   const handleAddItemToCart = (e) => {
     e.preventDefault();
-    const item = {
-      quantity: +productQuantityRef.current.value,
-      itemData: { ...menuToRender },
-      itemTotal: +productQuantityRef.current.value * menuToRender.price,
-    };
-    dispatch(addItem(item));
+    if (!productQuantityRef.current.value) {
+      productQuantityRef.current.value = 1;
+      return;
+    } else {
+      const item = {
+        quantity: +productQuantityRef.current.value,
+        itemData: { ...menuToRender },
+        itemTotal: +productQuantityRef.current.value * menuToRender.price,
+      };
+      dispatch(addItem(item));
+      dispatch(addCartAnimation(true));
+    }
   };
 
   return (

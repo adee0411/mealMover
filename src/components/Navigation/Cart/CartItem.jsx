@@ -11,11 +11,27 @@ const CartItem = ({ item }) => {
   const productQuantityRef = useRef();
   const dispatch = useDispatch();
 
-  const handleQuantityChange = (e) => {
-    if (+e.target.value < 1) {
+  /*const handleQuantityChange = (e) => {
+    if (e.target.value < 1) {
       e.target.value = 1;
     }
     dispatch(updateItem({ id, quantity: +productQuantityRef.current.value }));
+  };*/
+
+  const handleQuantityIncrease = (e) => {
+    e.preventDefault();
+    productQuantityRef.current.value++;
+    dispatch(updateItem({ id, quantity: +productQuantityRef.current.value }));
+  };
+
+  const handleQuantityDecrease = (e) => {
+    e.preventDefault();
+    if (+productQuantityRef.current.value === 1) {
+      return;
+    } else {
+      productQuantityRef.current.value--;
+      dispatch(updateItem({ id, quantity: +productQuantityRef.current.value }));
+    }
   };
 
   const handleRemoveItem = (e) => {
@@ -30,7 +46,10 @@ const CartItem = ({ item }) => {
           <img src={image_url} />
         </div>
         <div className="product-details">
-          <h4 className="product-details__title">{title}</h4>
+          <h4 className="product-details__title">
+            {title}
+            <span className="product-details__quantity">(x{quantity})</span>
+          </h4>
           <p className="product-details__price">{itemTotal} Ft</p>
           <form className="product-details__action">
             <button className="remove-product" onClick={handleRemoveItem}>
@@ -40,13 +59,18 @@ const CartItem = ({ item }) => {
         </div>
       </div>
       <form className="quantity-form">
+        <button className="btn--increase" onClick={handleQuantityDecrease}>
+          -
+        </button>
         <input
           type="number"
-          value={quantity}
+          defaultValue={quantity}
           name="product-quantity"
-          onChange={handleQuantityChange}
           ref={productQuantityRef}
         />
+        <button className="btn--decrease" onClick={handleQuantityIncrease}>
+          +
+        </button>
       </form>
     </li>
   );

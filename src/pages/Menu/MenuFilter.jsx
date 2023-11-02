@@ -28,7 +28,7 @@ const MenuFilter = ({ categoryList }) => {
   new Promise((resolve) => {
     setTimeout(() => {
       resolve(filteredList);
-    }, 2000);
+    }, 500);
   }).then(() => {
     setIsMenuLoading(false);
   });

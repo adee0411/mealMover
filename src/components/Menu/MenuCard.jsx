@@ -8,6 +8,7 @@ const MenuCard = ({ title, details, price, image, id }) => {
   const formattedDetails = details.join(", ").toLowerCase();
   const capitalizedDetails =
     formattedDetails[0].toUpperCase() + formattedDetails.slice(1);
+  console.log(id);
   return (
     <div className="menu-card">
       <Link to={`/${id}`}>
