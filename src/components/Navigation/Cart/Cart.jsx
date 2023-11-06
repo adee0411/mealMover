@@ -1,8 +1,9 @@
 import "./Cart.scss";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import CartItem from "./CartItem";
+import ActionButton from "../../UI/ActionButton";
 
 import { AiOutlineClose } from "react-icons/ai/index";
 
@@ -29,7 +30,7 @@ const Cart = ({ onShowCart }) => {
       <div className="cart">
         <header className="cart__header">
           <h3 className="cart__title">
-            Your <span className="colored">Cart</span>
+            Kosár <span className="colored">tartalma</span>
           </h3>
           <div className="cart__close">
             <button onClick={onShowCart}>
@@ -49,11 +50,11 @@ const Cart = ({ onShowCart }) => {
         </div>
         <footer className="cart__footer">
           <div className="total">
-            <span className="total__text">Subtotal</span>
+            <span className="total__text">Részösszeg</span>
             <span className="total__price">{totalAmount} Ft</span>
           </div>
           <form className="checkout">
-            <button className="checkout-btn">Continue to Checkout</button>
+            <ActionButton variant="primary" title="Tovább a kosárhoz" />
           </form>
         </footer>
       </div>

@@ -1,0 +1,49 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+.menu-list {
+  display: grid;
+  gap: 5px;
+
+  &__item {
+    //height: 100%;
+  }
+  &--list {
+    grid-template-columns: 1fr;
+    grid-auto-rows: 1fr;
+  }
+
+  &--grid {
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+
+    .menu-card {
+      padding: 0.5rem;
+
+      &__image {
+        img {
+          height: 70px;
+        }
+
+        .center-icon {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+          padding: 0.4rem;
+        }
+      }
+
+      &__title {
+        font-size: 0.8rem;
+      }
+
+      &__ingredients {
+        display: none;
+      }
+
+      &__price {
+        font-size: 1rem;
+      }
+    }
+  }
+}

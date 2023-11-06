@@ -1,12 +1,19 @@
-@use "sass:color";
 @import "../../variables.scss";
 
 .filter-list {
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  flex-wrap: wrap;
+
+  &--bottom {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 50;
+    flex-wrap: nowrap;
+  }
 
   &__link {
     display: block;
@@ -15,6 +22,7 @@
     padding: 0.5rem 1rem;
     border-radius: $radius-md;
     transition: box-shadow 0.4s ease;
+    text-align: center;
 
     &:hover {
       box-shadow: 0px 0px 10px 1px #cccccc7d;
@@ -22,6 +30,7 @@
 
     &--active {
       background-color: $primary-color-1;
+      box-shadow: 0px 0px 10px 1px #cccccc7d;
     }
   }
 }

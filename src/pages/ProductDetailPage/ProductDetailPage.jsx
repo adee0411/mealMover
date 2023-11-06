@@ -1,8 +1,11 @@
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import "./ProductDetailPage.scss";
+
+import NumberInput from "../../components/UI/NumberInput";
+import ActionButton from "../../components/UI/ActionButton";
 
 import { addItem } from "../../store/cartSlice";
 import { addCartAnimation } from "../../store/navigationSlice";
@@ -18,12 +21,16 @@ const ProductDetailPage = () => {
   const allMenuArr = Object.values(allMenu).flat();
 
   const menuToRender = allMenuArr.find((el) => el.id === productID);
+  const detailsString = menuToRender.details.join(", ");
+  const formattedDetails =
+    detailsString[0].toUpperCase() + detailsString.slice(1);
 
-  const handleQuantityChange = (e) => {
-    const value = +e.target.value;
-    if (value < 1) {
-      e.target.value = "";
-    }
+  const handleQuantityDecrease = (e) => {
+    productQuantityRef.current.value--;
+  };
+
+  const handleQuantityIncrease = (e) => {
+    productQuantityRef.current.value++;
   };
 
   const handleAddItemToCart = (e) => {
@@ -58,26 +65,34 @@ const ProductDetailPage = () => {
               {menuToRender.title}
             </h2>
             <div className="product-detail-wrapper__details">
-              <h3>Details</h3>
-              <p>{menuToRender.details.join(", ")}</p>
+              <h3>Összetevők</h3>
+              <p>{formattedDetails}</p>
             </div>
             <div className="product-detail-wrapper__price">
-              <h3>Price</h3>
+              <h3>Ár</h3>
               <p>{menuToRender.price} Ft</p>
             </div>
             <div className="product-detail-wrapper__add-to-cart">
               <form className="add-to-cart-form">
-                <h3>Quantity</h3>
-                <div className="input-wrapper">
-                  <input
-                    type="number"
-                    name="quantity"
-                    id="quantity"
-                    ref={productQuantityRef}
-                    onChange={handleQuantityChange}
-                    defaultValue={1}
-                  />
-                  <button onClick={handleAddItemToCart}>Add to cart</button>
+                <h3>Mennyiség</h3>
+                <div className="actions">
+                  <div className="actions__number-input-container">
+                    <NumberInput
+                      readOnly
+                      ref={productQuantityRef}
+                      onHandleDecrease={handleQuantityDecrease}
+                      onHandleIncrease={handleQuantityIncrease}
+                      defaultValue={1}
+                      min={1}
+                    />
+                  </div>
+                  <div className="actions__button-container">
+                    <ActionButton
+                      variant="primary"
+                      onHandleAction={handleAddItemToCart}
+                      title="Kosárba"
+                    />
+                  </div>
                 </div>
               </form>
             </div>

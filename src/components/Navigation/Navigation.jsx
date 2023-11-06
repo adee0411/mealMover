@@ -38,7 +38,7 @@ const Navigation = () => {
     };
   });
   return (
-    <header className="header">
+    <header className="header" id="header">
       <div className="nav-wrapper">
         <nav className="navigation">
           <Logo />

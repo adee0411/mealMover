@@ -1,5 +1,3 @@
-import { useSelector, useDispatch } from "react-redux";
-import { setActiveFilter } from "../../store/menuFilterSlice";
 import { useParams } from "react-router-dom";
 
 import { NavLink } from "react-router-dom";
@@ -7,19 +5,17 @@ import { NavLink } from "react-router-dom";
 import "./FilterList.scss";
 
 import MenuLink from "./MenuLink";
+import { useSelector } from "react-redux";
 
-const FilterList = ({ categoryList }) => {
-  //const activeFilter = useSelector((state) => state.menuFilter.activeFilter);
+const FilterList = () => {
   const activeFilter = useParams().filter;
-  //const dispatch = useDispatch();
 
-  /*const handleFilterChange = (e) => {
-    const linkName = e.target.name;
-    dispatch(setActiveFilter(linkName));
-  };*/
+  const categoryList = Object.keys(
+    useSelector((state) => state.menuFilter.allMenu)
+  );
 
   return (
-    <ul className="filter-list">
+    <ul className={`filter-list`}>
       <li className="filter-list__item">
         <NavLink
           to="/menu/osszes"

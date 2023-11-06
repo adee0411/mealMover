@@ -5,33 +5,22 @@ import { useDispatch } from "react-redux";
 
 import { updateItem, removeItem } from "../../../store/cartSlice";
 
+import NumberInput from "../../UI/NumberInput";
+
 const CartItem = ({ item }) => {
   const { quantity, itemTotal } = item;
   const { image_url, title, id } = item.itemData;
   const productQuantityRef = useRef();
   const dispatch = useDispatch();
 
-  /*const handleQuantityChange = (e) => {
-    if (e.target.value < 1) {
-      e.target.value = 1;
-    }
-    dispatch(updateItem({ id, quantity: +productQuantityRef.current.value }));
-  };*/
-
   const handleQuantityIncrease = (e) => {
-    e.preventDefault();
     productQuantityRef.current.value++;
     dispatch(updateItem({ id, quantity: +productQuantityRef.current.value }));
   };
 
   const handleQuantityDecrease = (e) => {
-    e.preventDefault();
-    if (+productQuantityRef.current.value === 1) {
-      return;
-    } else {
-      productQuantityRef.current.value--;
-      dispatch(updateItem({ id, quantity: +productQuantityRef.current.value }));
-    }
+    productQuantityRef.current.value--;
+    dispatch(updateItem({ id, quantity: +productQuantityRef.current.value }));
   };
 
   const handleRemoveItem = (e) => {
@@ -53,25 +42,21 @@ const CartItem = ({ item }) => {
           <p className="product-details__price">{itemTotal} Ft</p>
           <form className="product-details__action">
             <button className="remove-product" onClick={handleRemoveItem}>
-              Remove
+              Eltávolít
             </button>
           </form>
         </div>
+        <div className="number-input-container">
+          <NumberInput
+            readOnly
+            defaultValue={quantity}
+            onHandleDecrease={handleQuantityDecrease}
+            onHandleIncrease={handleQuantityIncrease}
+            ref={productQuantityRef}
+            min={1}
+          />
+        </div>
       </div>
-      <form className="quantity-form">
-        <button className="btn--increase" onClick={handleQuantityDecrease}>
-          -
-        </button>
-        <input
-          type="number"
-          defaultValue={quantity}
-          name="product-quantity"
-          ref={productQuantityRef}
-        />
-        <button className="btn--decrease" onClick={handleQuantityIncrease}>
-          +
-        </button>
-      </form>
     </li>
   );
 };

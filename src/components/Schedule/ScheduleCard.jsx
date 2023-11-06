@@ -3,10 +3,11 @@ import "./ScheduleCard.scss";
 import ScheduleItem from "./ScheduleItem";
 
 const ScheduleCard = ({ day, scheduleData }) => {
+  const upperCasedDay = day[0].toUpperCase() + day.slice(1);
   return (
     <div className="schedule-card">
       <header className="schedule-card__header">
-        <h2 className="schedule-card__title">{day}</h2>
+        <h2 className="schedule-card__title">{upperCasedDay}</h2>
         <span className="schedule-card__current-date">
           {new Date(scheduleData.date).toLocaleDateString("en")}
         </span>

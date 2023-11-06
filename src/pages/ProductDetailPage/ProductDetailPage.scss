@@ -3,6 +3,7 @@
 
 .product-detail-page-wrapper {
   padding: 1rem;
+  min-height: 100vh;
 }
 
 .product-detail-wrapper {
@@ -46,29 +47,13 @@
   }
 
   &__add-to-cart {
-    .input-wrapper {
+    .actions {
       display: flex;
       justify-content: space-between;
+      width: 100%;
 
-      input[type="number"] {
-        border: 1px solid $primary-color-2;
-        border-radius: $radius-md;
-        padding: 0.7rem;
-        width: 70px;
-        font-size: 1.2rem;
-      }
-
-      button {
-        padding: 1rem 1.5rem;
-        background-color: $primary-color-1;
-        border-radius: $radius-md;
-        border: 1px solid $primary-color-1;
-        transition: all 0.2s ease;
-
-        &:hover {
-          background-color: $primary-color-2;
-          color: $primary-color-1;
-        }
+      &__number-input-container {
+        width: 25%;
       }
     }
   }

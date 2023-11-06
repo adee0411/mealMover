@@ -1,0 +1,51 @@
+@import "../../variables.scss";
+@import "../../mixins.scss";
+
+/* GENERAL BUTTON DEFINITIONS */
+.btn {
+  padding: 0.8rem 2rem;
+  border: 1px solid $button-bg-color-light;
+  border-radius: $radius-md;
+  position: relative;
+  overflow: hidden;
+  font-weight: 800;
+  transition: all 0.4s ease;
+
+  &__content {
+    @include align-center;
+    gap: 0.4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__icon {
+    @include align-center;
+  }
+
+  &__title {
+    font-size: 0.8rem;
+  }
+
+  &--primary {
+    background-color: $button-bg-color-light;
+
+    .btn__title,
+    .btn__icon {
+      color: $text-color-dark;
+    }
+  }
+
+  &--secondary {
+    background-color: $button-bg-color-dark;
+
+    .btn__title,
+    .btn__icon {
+      color: $text-color-light;
+    }
+  }
+
+  &--plain {
+    background-color: $button-bg-color-plain;
+    color: $text-color-dark;
+  }
+}

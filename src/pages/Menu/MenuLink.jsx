@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 import "./MenuLink.scss";
 
-const MenuLink = ({ categoryName, activeFilter, onHandleFilterChange }) => {
+const MenuLink = ({ categoryName, activeFilter }) => {
   return (
     <NavLink
       to={`/menu/${categoryName}`}
@@ -10,7 +10,6 @@ const MenuLink = ({ categoryName, activeFilter, onHandleFilterChange }) => {
         activeFilter === categoryName ? "filter-list__link--active" : ""
       }`}
       name={categoryName}
-      onClick={onHandleFilterChange}
     >
       {categoryName[0].toUpperCase() + categoryName.slice(1)}
     </NavLink>

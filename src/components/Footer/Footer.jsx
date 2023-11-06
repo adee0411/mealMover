@@ -7,7 +7,7 @@ import { BsFillTelephoneFill } from "react-icons/bs/index";
 import { FaEnvelope } from "react-icons/fa/index";
 import { FiChevronRight } from "react-icons/fi/index";
 
-import Button from "../UI/Button";
+import Button from "../UI/LinkButton";
 
 const Footer = () => {
   return (

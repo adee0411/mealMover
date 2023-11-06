@@ -1,10 +1,13 @@
-import "./Button.scss";
+import "./LinkButton.scss";
 
 import { Link } from "react-router-dom";
 
-const Button = ({ variant, icon, title, path }) => {
+const LinkButton = ({ variant, icon, title, path }) => {
   return (
-    <Link to={path} className={`btn btn--${variant}`}>
+    <Link
+      to={path}
+      className={`btn btn--${variant} link-btn link-btn--${variant}`}
+    >
       <span className="btn__content">
         <span className="btn__icon">{icon}</span>
 
@@ -14,4 +17,4 @@ const Button = ({ variant, icon, title, path }) => {
   );
 };
 
-export default Button;
+export default LinkButton;

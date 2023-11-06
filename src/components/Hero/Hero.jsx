@@ -1,6 +1,6 @@
 import "./Hero.scss";
 
-import Button from "../UI/Button";
+import LinkButton from "../UI/LinkButton";
 import { MdLocationPin, MdOutlineRestaurantMenu } from "react-icons/md/index";
 
 const Hero = () => {
@@ -10,23 +10,22 @@ const Hero = () => {
       <div className="hero__content">
         {" "}
         <h1 className="hero__title">
-          <span className="hero__title--colored">Delicious and authentic</span>
+          <span className="hero__title--colored">Ízletes autentikus</span>
           <br />
           <span>street food!</span>
         </h1>
         <p className="hero__description">
-          We take pride in offering a wide variety of mouthwatering dishes that
-          are made with only the freshest and highest quality ingredients.
+          Autentikus street food kínálat - mindig friss alapanyagokból!
         </p>
         <div className="hero__actions">
-          <Button
+          <LinkButton
             variant="primary"
-            title="Visit Today"
+            title="Hol vagyunk"
             icon={<MdLocationPin />}
           />
-          <Button
+          <LinkButton
             variant="secondary"
-            title="View Menu"
+            title="Menü"
             icon={<MdOutlineRestaurantMenu />}
             path="menu/osszes"
           />

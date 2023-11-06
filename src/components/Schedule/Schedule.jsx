@@ -15,7 +15,7 @@ const Schedule = () => {
     <Section
       variant="colored"
       icon={<RiTimeLine />}
-      title="Truck Schedule"
+      title="Következő állomások"
       description="Indulge in mouthwatering dishes bursting with savory flavors. Our
           tempting assortment of street food is sure to satisfy your every
           craving."

@@ -1,0 +1,97 @@
+@import "../../../variables.scss";
+@import "../../../mixins.scss";
+
+.product-list__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .item-wrapper {
+    display: flex;
+    gap: 1rem;
+
+    .img-cont {
+      display: flex;
+      align-items: center;
+
+      overflow: hidden;
+      img {
+        width: 60px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: $radius-md;
+      }
+    }
+
+    .product-details {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      &__title,
+      &__price {
+        margin: 0;
+        padding: 0;
+      }
+
+      &__title {
+        font-size: 0.9rem;
+      }
+
+      &__price {
+        font-size: 1rem;
+        font-family: $font-family-fancy;
+        font-weight: 100;
+      }
+
+      &__quantity {
+        font-size: 0.8rem;
+        margin-left: 0.5rem;
+      }
+
+      &__action {
+        .remove-product {
+          padding: 0;
+          transition: color 0.2s ease;
+          color: #ccc;
+
+          &:hover {
+            color: $link-color-light;
+          }
+        }
+      }
+    }
+  }
+
+  .quantity-form {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    input {
+      padding: 0.6em 0.8rem;
+      width: 60px;
+      font-size: 1.1rem;
+      border-radius: $radius-md;
+      border: 1px solid #ccc;
+      outline: none;
+      font-family: $font-family-base;
+      pointer-events: none;
+
+      &:focus {
+        border: 1px solid $primary-color-1;
+      }
+    }
+
+    .btn--increase,
+    .btn--decrease {
+      font-size: 1.5rem;
+    }
+  }
+}
+
+.number-input-container {
+  width: 25%;
+  height: 40px;
+  margin-left: auto;
+  align-self: center;
+}

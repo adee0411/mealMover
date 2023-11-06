@@ -1,11 +1,13 @@
+import "./MenuList.scss";
+
 import MenuCard from "../../components/Menu/MenuCard";
 
-const MenuList = ({ filteredList }) => {
+const MenuList = ({ filteredList, view }) => {
   return (
-    <ul>
+    <ul className={`menu-list menu-list--${view}`}>
       {filteredList.map((food) => {
         return (
-          <li>
+          <li className="menu-list__item" key={food.id}>
             <MenuCard
               title={food.title}
               details={food.details}

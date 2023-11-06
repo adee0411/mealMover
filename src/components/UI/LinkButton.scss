@@ -1,41 +1,17 @@
 @import "../../variables.scss";
 @import "../../mixins.scss";
+@import "_button";
 
-.btn {
-  padding: 0.8rem 2rem;
-  border: 1px solid $button-bg-color-light;
-  border-radius: 0.5rem;
-  position: relative;
-
-  overflow: hidden;
-
-  &__title,
-  &__icon {
-    transition: color 0.4s ease;
-  }
-
-  &__content {
-    font-size: 0.9rem;
-    font-weight: 800;
-
-    @include align-center;
-    gap: 0.4rem;
-    position: relative;
-    z-index: 1;
-  }
-
+.link-btn {
   &__icon {
     font-size: 1.2rem;
   }
 
+  &__title {
+    font-size: 0.8rem;
+  }
+
   &--primary {
-    background-color: $button-bg-color-light;
-
-    .btn__title,
-    .btn__icon {
-      color: $text-color-dark;
-    }
-
     &::after {
       content: "";
       display: block;
@@ -64,14 +40,6 @@
   &--secondary {
     background-color: $button-bg-color-dark;
 
-    .btn__title {
-      color: $text-color-light-2;
-    }
-
-    .btn__icon {
-      color: $primary-color-1;
-    }
-
     &::after {
       content: "";
       display: block;
@@ -85,12 +53,11 @@
       transition: width 0.4s ease-out;
     }
 
-    &:hover .btn__title {
-      color: $text-color-dark;
-    }
-
-    &:hover .btn__icon {
-      color: $primary-color-2;
+    &:hover {
+      .btn__title,
+      .btn__icon {
+        color: $text-color-dark;
+      }
     }
 
     &:hover::after {

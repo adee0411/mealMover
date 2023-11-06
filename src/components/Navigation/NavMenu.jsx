@@ -6,22 +6,13 @@ import { Link } from "react-router-dom";
 
 import { AiOutlineClose } from "react-icons/ai/index";
 import { MdRestaurantMenu } from "react-icons/md/index";
-import { CiPizza, CiBurger } from "react-icons/ci/index";
-import { PiBowlFoodLight } from "react-icons/pi/index";
-import { GiTacos, GiBarbecue } from "react-icons/gi/index";
 import { BiChevronDown } from "react-icons/bi/index";
+
+import { MENU_ICONS } from "../../data/utils";
 
 import "./NavMenu.scss";
 
 import Logo from "../UI/Logo";
-
-const MENU_ICONS = {
-  pizza: <CiPizza />,
-  hamburger: <CiBurger />,
-  tészta: <PiBowlFoodLight />,
-  taco: <GiTacos />,
-  bbq: <GiBarbecue />,
-};
 
 const NavMenu = () => {
   const dispatach = useDispatch();

@@ -1,0 +1,25 @@
+@import "../../variables.scss";
+
+.action-btn {
+  font-weight: 400;
+
+  &--primary {
+    &:hover {
+      background-color: $button-bg-color-dark;
+      .btn__title,
+      .btn__icon {
+        color: $text-color-light;
+      }
+    }
+  }
+
+  &--secondary {
+    background-color: $button-bg-color-light;
+    &:hover {
+      .btn__title,
+      .btn__icon {
+        color: $text-color-dark;
+      }
+    }
+  }
+}

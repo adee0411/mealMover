@@ -229,7 +229,7 @@ const menu = {
       ],
     },
   ],
-  bbq: [
+  BBQ: [
     {
       id: "",
       title: "BBQ csirkeszárny",

@@ -1,5 +1,5 @@
 const scheduleData = {
-  today: {
+  ma: {
     date: new Date(),
     data: [
       {
@@ -22,7 +22,7 @@ const scheduleData = {
       },
     ],
   },
-  tomorrow: {
+  holnap: {
     date: new Date(),
     data: [
       {

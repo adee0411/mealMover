@@ -1,9 +1,65 @@
 @import "../../variables.scss";
+@import "../../mixins.scss";
 
 .menu-filter {
-  padding: 1rem;
+  padding: 2rem;
   max-width: 500px;
   margin: 0 auto;
+
+  .menu {
+    margin: 1rem 0;
+
+    &__header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &__view-options-wrapper {
+      width: 25%;
+      padding: 0 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .view-btn {
+        padding: 6px;
+        @include align-center;
+        font-size: 1.5rem;
+        font-weight: 800;
+        border-radius: $radius-md;
+        opacity: 0.4;
+        transition: all 0.4s ease;
+
+        &.active {
+          background-color: #f5d4002f;
+          opacity: 1;
+        }
+      }
+    }
+
+    &__category-name {
+      font-family: $font-family-fancy;
+      font-size: 2rem;
+      margin: 0;
+
+      span {
+        position: relative;
+
+        &::after {
+          content: "";
+          display: block;
+          position: absolute;
+          top: 60%;
+          left: 10%;
+          width: 100%;
+          height: 30%;
+          background-color: $primary-color-1;
+          z-index: -1;
+        }
+      }
+    }
+  }
 }
 
 .loading {
