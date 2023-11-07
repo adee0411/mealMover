@@ -12,7 +12,7 @@ const MenuList = ({ filteredList, view }) => {
               title={food.title}
               details={food.details}
               price={food.price}
-              image={food.image_url}
+              image_url={food.image_url}
               id={food.id}
             />
           </li>

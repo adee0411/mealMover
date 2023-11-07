@@ -1,5 +1,4 @@
 import { useParams } from "react-router-dom";
-import { useInView } from "react-intersection-observer";
 
 import { NavLink } from "react-router-dom";
 
@@ -17,7 +16,9 @@ const BottomFilter = ({ isVisible }) => {
   );
 
   return (
-    <ul className={`filter-list--bottom ${isVisible ? "slide-up" : ""}`}>
+    <ul
+      className={`filter-list--bottom ${isVisible ? "slide-up" : "slide-down"}`}
+    >
       <li className="filter-list--bottom__item">
         <NavLink
           to="/menu/osszes"

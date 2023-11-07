@@ -1,11 +1,13 @@
 import { useParams } from "react-router";
 import { useSelector, useDispatch } from "react-redux";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import "./ProductDetailPage.scss";
 
 import NumberInput from "../../components/UI/NumberInput";
 import ActionButton from "../../components/UI/ActionButton";
+
+import MenuList from "../Menu/MenuList";
 
 import { addItem } from "../../store/cartSlice";
 import { addCartAnimation } from "../../store/navigationSlice";
@@ -24,6 +26,22 @@ const ProductDetailPage = () => {
   const detailsString = menuToRender.details.join(", ");
   const formattedDetails =
     detailsString[0].toUpperCase() + detailsString.slice(1);
+
+  const moreProducts = (() => {
+    const productList = [];
+    for (let i = 0; i < 6; i++) {
+      const randomNum = Math.floor(Math.random() * (allMenuArr.length - 1));
+      const product = allMenuArr[randomNum];
+      // Avoid adding the same item more than once
+      if (productList.findIndex((el) => el.id === product.id) > -1) {
+        i--;
+        continue;
+      }
+      productList.push(product);
+    }
+
+    return productList;
+  })();
 
   const handleQuantityDecrease = (e) => {
     productQuantityRef.current.value--;
@@ -97,6 +115,12 @@ const ProductDetailPage = () => {
               </form>
             </div>
           </div>
+        </div>
+        <div className="other-products">
+          <header className="other-products__header">
+            <h2 className="other-products__title">További temékek</h2>
+          </header>
+          <MenuList filteredList={moreProducts} view="grid" />
         </div>
       </div>
     </>

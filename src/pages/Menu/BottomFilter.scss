@@ -57,3 +57,19 @@
     bottom: 0;
   }
 }
+
+.slide-down {
+  animation-name: slide-down;
+  animation-duration: 0.4s;
+  animation-fill-mode: forwards;
+  animation-timing-function: ease;
+}
+
+@keyframes slide-down {
+  from {
+    bottom: 0px;
+  }
+  to {
+    bottom: -70px;
+  }
+}

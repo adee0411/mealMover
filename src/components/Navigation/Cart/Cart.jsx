@@ -54,7 +54,11 @@ const Cart = ({ onShowCart }) => {
             <span className="total__price">{totalAmount} Ft</span>
           </div>
           <form className="checkout">
-            <ActionButton variant="primary" title="Tovább a kosárhoz" />
+            <ActionButton
+              variant="primary"
+              title="Tovább a kosárhoz"
+              disabled={true}
+            />
           </form>
         </footer>
       </div>

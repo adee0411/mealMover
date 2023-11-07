@@ -10,6 +10,7 @@ import NumberInput from "../../UI/NumberInput";
 const CartItem = ({ item }) => {
   const { quantity, itemTotal } = item;
   const { image_url, title, id } = item.itemData;
+  console.log(image_url);
   const productQuantityRef = useRef();
   const dispatch = useDispatch();
 

@@ -26,7 +26,7 @@ const Menu = () => {
                 title={firstOfCategory.title}
                 details={firstOfCategory.details}
                 price={firstOfCategory.price}
-                image={firstOfCategory.image_url}
+                image_url={firstOfCategory.image_url}
                 id={firstOfCategory.id}
               />
             </li>
